@@ -1,9 +1,6 @@
 package com.krawczykm.sfgdi;
 
-import com.krawczykm.sfgdi.controllers.ConstructorInjectedController;
-import com.krawczykm.sfgdi.controllers.MyController;
-import com.krawczykm.sfgdi.controllers.PropertyInjectedController;
-import com.krawczykm.sfgdi.controllers.SetterInjectedController;
+import com.krawczykm.sfgdi.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +10,9 @@ public class SfgDiApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SfgDiApplication.class, args);
+
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 
 		MyController myController = (MyController) ctx.getBean("myController");
 
